@@ -15,28 +15,29 @@
 
 
 
-<meta name="description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
-<meta name="keywords" content="Fiddler">
+<meta name="description" content="工欲善其事必先利其器，分享一些官网的说明文档上没提及的但开发中比较实用的IDEA技巧，如果你有好的知识分享，欢迎加入我们。 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
+<meta name="keywords" content="IDEA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈Fiddler手机抓包在实际开发中的应用">
-<meta property="og:url" content="http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/index.html">
+<meta property="og:title" content="IDEA几个实用小技巧">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/my-new-post/index.html">
 <meta property="og:site_name" content="源码精品分析">
-<meta property="og:description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
+<meta property="og:description" content="工欲善其事必先利其器，分享一些官网的说明文档上没提及的但开发中比较实用的IDEA技巧，如果你有好的知识分享，欢迎加入我们。 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaCrthGw9vBgxicicSM0vickwusWmicXy8G4uJ1vG3kT9rMpOq0sIQicoGliaxodl3Pak1vjFgibR4cjPib8GQ/0?wx_fmt=jpeg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXzsvrB1NxawMZaFYm4kVhKVBbnGbWZHrwkKF07kodANtEPIfSeOWbCQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXwyhIOKZPebVYHTkFNBaamnsjdjnXXZ36qDsxwSP9DxRAl14Mup3l1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXQib2HgRibILYOoV9u9xicZ8l354v00mPByYk0ickJjib6jAfR4ajB9XqD3A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqX8uXlqZ3PEts8WuCTM2ibJ5lHnrtJ90a7zlic7Ym4bPH8jKcKf6qcB5bQ/0?wx_fmt=jpeg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXhqxTIz3c0JoNpKKoJsqGUpLRPTeHH325ZqiaxicR0aIkiboqsZnDrqxUw/0?wx_fmt=jpeg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXXYbR0CadnNh86ibbTu1qNpaRu7JQtADibxWUTPVCSOo1EdOxLat6gkfg/0?wx_fmt=jpeg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXH34R6bEStRD8exBQWoMY2uxq9H82jU41nklIJHAtyicstyGLwme3FnA/0?wx_fmt=jpeg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXRnKf5NjgYF2hX8iaS9kugUu16Libwdhwdh7Dz6IDJFtpOtVic6m5MiaYicA/0?wx_fmt=png">
-<meta property="og:updated_time" content="2019-04-20T03:27:34.871Z">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaC9KPheApwf0lWnDzics2icJINoBtibjcZcn3ykBVT24JmxJgYM4yBIYPSn6HMf1LnK03Bx1aRJMBviaw/0?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJINrhc3lbOVrxRr6UfJlPWwGsnQZoK0MqB1WOO8LNmvibT2jIBEZRnUJw/0?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIvI5Jia3q3skjZyBicKvxDoJMFnBIcjIFC7K9DqdibvCZJtQPsNB0G83Mw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIN2YVic2leqqZpnQhYVckX368DQehE4UEM45jnxRtjKU8GKUGn0EAXVg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIdic7yiaNicAp6ibFoBnWic57T5pOJvVZAINj3HaJdFny9DCfIib5RmVHPfgg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIJD1deZ5kJKJlwjWjs5K7c3ESEc1LXFrtEtQxB2mkh1ZyvdMeYv4Ieg/0?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIoF83ptYgQXPiao05Ppd8KYnUwnHgkdt7icicED9KJIh6C57Q8hEqEkejw/0?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJI5FnvxlYDVOibNPJYvwVCUZJJ8EywuuFhBQpiav2pfv0nD2ic5YxclFP1A/0?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIxKgJTQe2yibHUBSYic7iaH4J7G3G5UaZqCca030GtB4lNgSZJYsVT99zQ/0?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIJMRWTyWZmt1W56q1Nqp9JWW6LrQiavouvichNpicSNZPMGYOTicygb71HA/0?wx_fmt=png">
+<meta property="og:updated_time" content="2019-04-20T03:40:01.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Fiddler手机抓包在实际开发中的应用">
-<meta name="twitter:description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
-<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaCrthGw9vBgxicicSM0vickwusWmicXy8G4uJ1vG3kT9rMpOq0sIQicoGliaxodl3Pak1vjFgibR4cjPib8GQ/0?wx_fmt=jpeg">
+<meta name="twitter:title" content="IDEA几个实用小技巧">
+<meta name="twitter:description" content="工欲善其事必先利其器，分享一些官网的说明文档上没提及的但开发中比较实用的IDEA技巧，如果你有好的知识分享，欢迎加入我们。 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaC9KPheApwf0lWnDzics2icJINoBtibjcZcn3ykBVT24JmxJgYM4yBIYPSn6HMf1LnK03Bx1aRJMBviaw/0?wx_fmt=jpeg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -68,7 +69,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>浅谈Fiddler手机抓包在实际开发中的应用 | 源码精品分析</title>
+<title>IDEA几个实用小技巧 | 源码精品分析</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -227,11 +228,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-浅谈Fiddler手机抓包在实际开发中的应用" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/" class="article-date">
-      <time datetime="2019-04-19T07:37:41.000Z" itemprop="datePublished">2019-04-19</time>
+      <a href="/2019/04/20/my-new-post/" class="article-date">
+      <time datetime="2019-04-20T03:11:45.000Z" itemprop="datePublished">2019-04-20</time>
 </a>
 
 
@@ -246,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈Fiddler手机抓包在实际开发中的应用
+      IDEA几个实用小技巧
     </h1>
   
 
@@ -257,7 +258,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fiddler/">Fiddler</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/">IDEA</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -267,13 +268,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaCrthGw9vBgxicicSM0vickwusWmicXy8G4uJ1vG3kT9rMpOq0sIQicoGliaxodl3Pak1vjFgibR4cjPib8GQ/0?wx_fmt=jpeg" alt><br><a id="more"></a><br>1.Fiddler下载</p>
-<p>官网链接：<a href="https://www.telerik.com/fiddler" target="_blank" rel="noopener">https://www.telerik.com/fiddler</a></p>
-<p>英文文档链接：<a href="http://docs.telerik.com/fiddler/configure-fiddler/tasks/configurefiddler" target="_blank" rel="noopener">http://docs.telerik.com/fiddler/configure-fiddler/tasks/configurefiddler</a></p>
-<p>2.Fillder界面介绍及参数配置</p>
-<p>（1）找到Tools-&gt;Fiddler Options-&gt;Connections,将Allow remote computer to connect 选中，点击OK，这是为了能够捕获远程设备上的请求而勾选的。<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXzsvrB1NxawMZaFYm4kVhKVBbnGbWZHrwkKF07kodANtEPIfSeOWbCQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（2）在HTPPS中勾选【Capture HTTPS CONNECTS】<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXwyhIOKZPebVYHTkFNBaamnsjdjnXXZ36qDsxwSP9DxRAl14Mup3l1A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（3）将软件退出然后重启</p>
-<p>3.手机端配置，以安卓手机为例介绍</p>
-<p>（1）首先需要确保手机端和安装Fiddler软件的电脑在同一局域网，我是连的公司内网WIFI，配置手机代理前，先在电脑端的Fiddler页面的右上角鼠标悬浮online查看机器的IP<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXQib2HgRibILYOoV9u9xicZ8l354v00mPByYk0ickJjib6jAfR4ajB9XqD3A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（2）进行手机端代理设置，选择代理配置方式为手动，服务器IP为上一步查看的安装Fiddler机器的IP，端口设置为8888<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqX8uXlqZ3PEts8WuCTM2ibJ5lHnrtJ90a7zlic7Ym4bPH8jKcKf6qcB5bQ/0?wx_fmt=jpeg" alt><br>（3）在手机端操作需要抓包调试的软件，可查看Fiddler已执行抓包请求<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXhqxTIz3c0JoNpKKoJsqGUpLRPTeHH325ZqiaxicR0aIkiboqsZnDrqxUw/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXXYbR0CadnNh86ibbTu1qNpaRu7JQtADibxWUTPVCSOo1EdOxLat6gkfg/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXH34R6bEStRD8exBQWoMY2uxq9H82jU41nklIJHAtyicstyGLwme3FnA/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXRnKf5NjgYF2hX8iaS9kugUu16Libwdhwdh7Dz6IDJFtpOtVic6m5MiaYicA/0?wx_fmt=png" alt><br> <!--音乐播放插件--><br>    <div style="margin-top:0px;"><br>        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//dl.stream.qqmusic.qq.com/M5000021rBlZ1gQiLy.mp3?vkey=7A251B25A20DDE32571C1006E21CD43FFBCA50FCCF93F15B358B230E944600E8902EF2C0FF2AB49FDACF500BD1607B0D1E67731E1CEC266E&guid=5150825362&fromtag=1"></iframe><br>    </div></p>
+        <p>工欲善其事必先利其器，分享一些官网的说明文档上没提及的但开发中比较实用的IDEA技巧，如果你有好的知识分享，欢迎加入我们。<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaC9KPheApwf0lWnDzics2icJINoBtibjcZcn3ykBVT24JmxJgYM4yBIYPSn6HMf1LnK03Bx1aRJMBviaw/0?wx_fmt=jpeg" alt><br><a id="more"></a><br>IDEA官网：<a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/</a><br>文档：<a href="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-introduce.html" target="_blank" rel="noopener">http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-introduce.html</a><br>本次分享使用的IDEA版本：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJINrhc3lbOVrxRr6UfJlPWwGsnQZoK0MqB1WOO8LNmvibT2jIBEZRnUJw/0?wx_fmt=png" alt><br>一、可以增加开发和阅读源码效率的插件<br>JRebel<br>官网地址：<a href="https://jrebel.com/software/jrebel/" target="_blank" rel="noopener">https://jrebel.com/software/jrebel/</a><br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIvI5Jia3q3skjZyBicKvxDoJMFnBIcjIFC7K9DqdibvCZJtQPsNB0G83Mw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>说明：在开发过程中，免去了修改代码后rebuild、reload、redeploy的过程，和传统方式相比JRebel会直接重载class到JVM中， 大量节省开发时间。</p>
+<p>二.几个好用的快捷键</p>
+<pre><code>1.Ctrl+Alt+H 显示方法调用的层次
+</code></pre><p><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIN2YVic2leqqZpnQhYVckX368DQehE4UEM45jnxRtjKU8GKUGn0EAXVg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt></p>
+<pre><code>2.Ctrl+Shift+F8 一次取消所有断点
+</code></pre><p><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIdic7yiaNicAp6ibFoBnWic57T5pOJvVZAINj3HaJdFny9DCfIib5RmVHPfgg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt></p>
+<p>   3.Ctrl+F9 修改代码后，执行编译操作</p>
+<p>三.Debug中的一些技巧</p>
+<ol>
+<li><p>F8和F9不过多介绍了，一个是单步执行和运行到下一断点，基本IDEA的用户都知道</p>
+</li>
+<li><p>Shift+F7 选择性步入源码的具体实现，可以人为选择具体进入哪个方法的源码实现<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIJD1deZ5kJKJlwjWjs5K7c3ESEc1LXFrtEtQxB2mkh1ZyvdMeYv4Ieg/0?wx_fmt=png" alt></p>
+</li>
+<li><p>Alt+F9  让断点运行至光标所在的行，好处：不用在该行打断点即可实现<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIoF83ptYgQXPiao05Ppd8KYnUwnHgkdt7icicED9KJIh6C57Q8hEqEkejw/0?wx_fmt=png" alt></p>
+</li>
+</ol>
+<p>4.Alt+鼠标左键 快速查看变量的值<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJI5FnvxlYDVOibNPJYvwVCUZJJ8EywuuFhBQpiav2pfv0nD2ic5YxclFP1A/0?wx_fmt=png" alt></p>
+<p>5.多线程调试 这个的应用场景比如开发环境有类似dubbo+zk的架构，由于负载均衡原因别的小伙伴调用接口时进入有断点的本地调试机器，会导致想发起另外一个请求都无法进行了，出现这个问题是因为IDEA在Debug时默认的阻塞级别是ALL，会阻塞其它线程，也就是说要等当前调试线程走完时才会走其它线程，这个提供一个小技巧可以解决这个问题，Ctrl+Shift+F8进入断点设置视图，Suspend选Thread，即可进行多线程调试<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIxKgJTQe2yibHUBSYic7iaH4J7G3G5UaZqCca030GtB4lNgSZJYsVT99zQ/0?wx_fmt=png" alt></p>
+<p>6.断点回退 有时候常因为不小心错过了想看的代码行数，断点调试界的后悔药<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaC9KPheApwf0lWnDzics2icJIJMRWTyWZmt1W56q1Nqp9JWW6LrQiavouvichNpicSNZPMGYOTicygb71HA/0?wx_fmt=png" alt></p>
+<p>如果您觉得这些小技巧对你有用，如果您也同样热衷于分享，欢迎关注：源码精品分享，我们期待您的加入。</p>
 
       
     </div>
@@ -282,13 +296,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/">浅谈Fiddler手机抓包在实际开发中的应用</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/20/my-new-post/">IDEA几个实用小技巧</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DaiFuyou</a></p>
-        <p><span>发布时间:</span>2019-04-19, 15:37:41</p>
-        <p><span>最后更新:</span>2019-04-20, 11:27:34</p>
+        <p><span>发布时间:</span>2019-04-20, 11:11:45</p>
+        <p><span>最后更新:</span>2019-04-20, 11:40:01</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/" title="浅谈Fiddler手机抓包在实际开发中的应用">http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/　　作者: DaiFuyou" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/20/my-new-post/" title="IDEA几个实用小技巧">http://yoursite.com/2019/04/20/my-new-post/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/20/my-new-post/　　作者: DaiFuyou" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -300,12 +314,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/04/20/my-new-post/">
-                    IDEA几个实用小技巧
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/">
+                    浅谈Fiddler手机抓包在实际开发中的应用
                 </a>
             </div>
-        
         
     </nav>
 
@@ -351,7 +365,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"浅谈Fiddler手机抓包在实际开发中的应用　| 源码精品分析　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"IDEA几个实用小技巧　| 源码精品分析　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -371,15 +385,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/04/20/my-new-post/" title="上一篇: IDEA几个实用小技巧">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/" title="下一篇: 浅谈Fiddler手机抓包在实际开发中的应用">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

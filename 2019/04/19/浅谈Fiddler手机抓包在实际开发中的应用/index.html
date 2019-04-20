@@ -11,25 +11,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<meta name="author" content="源码精品分析">
+<meta name="author" content="DaiFuyou">
 
 
 
-<meta name="description" content="H1H2H3H4H5H6">
+<meta name="description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。">
 <meta name="keywords" content="Fiddler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈Fiddler手机抓包在实际开发中的应用">
 <meta property="og:url" content="http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/index.html">
 <meta property="og:site_name" content="源码精品分析">
-<meta property="og:description" content="H1H2H3H4H5H6">
+<meta property="og:description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555734288759&di=1178623005b6c8a6451fb52ea263cad1&imgtype=0&src=http%3A%2F%2Fimg1.xcarimg.com%2Fexp%2F2872%2F2875%2F2937%2F20101220130509576539.jpg">
-<meta property="og:image" content="https://img04.sogoucdn.com/app/a/100520146/6ED61265B2D55041DDF8F1F30696D182">
-<meta property="og:updated_time" content="2019-04-20T01:41:19.076Z">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXzsvrB1NxawMZaFYm4kVhKVBbnGbWZHrwkKF07kodANtEPIfSeOWbCQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXwyhIOKZPebVYHTkFNBaamnsjdjnXXZ36qDsxwSP9DxRAl14Mup3l1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXQib2HgRibILYOoV9u9xicZ8l354v00mPByYk0ickJjib6jAfR4ajB9XqD3A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqX8uXlqZ3PEts8WuCTM2ibJ5lHnrtJ90a7zlic7Ym4bPH8jKcKf6qcB5bQ/0?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXhqxTIz3c0JoNpKKoJsqGUpLRPTeHH325ZqiaxicR0aIkiboqsZnDrqxUw/0?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXXYbR0CadnNh86ibbTu1qNpaRu7JQtADibxWUTPVCSOo1EdOxLat6gkfg/0?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXH34R6bEStRD8exBQWoMY2uxq9H82jU41nklIJHAtyicstyGLwme3FnA/0?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXRnKf5NjgYF2hX8iaS9kugUu16Libwdhwdh7Dz6IDJFtpOtVic6m5MiaYicA/0?wx_fmt=png">
+<meta property="og:updated_time" content="2019-04-20T03:01:01.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Fiddler手机抓包在实际开发中的应用">
-<meta name="twitter:description" content="H1H2H3H4H5H6">
-<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555734288759&di=1178623005b6c8a6451fb52ea263cad1&imgtype=0&src=http%3A%2F%2Fimg1.xcarimg.com%2Fexp%2F2872%2F2875%2F2937%2F20101220130509576539.jpg">
+<meta name="twitter:description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXzsvrB1NxawMZaFYm4kVhKVBbnGbWZHrwkKF07kodANtEPIfSeOWbCQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -104,11 +110,11 @@
             <img src="/img/jiangxin.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">源码精品分析</a></h1>
+          <h1 class="header-author"><a href="/">DaiFuyou</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">愿半生编码，如一生老友</p>
+        <p class="header-subtitle">源码精品分析社区</p>
         
 
         
@@ -178,7 +184,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">源码精品分析</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DaiFuyou</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -186,10 +192,10 @@
                 <img src="/img/jiangxin.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">源码精品分析</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">DaiFuyou</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">愿半生编码，如一生老友</p>
+            <p class="header-subtitle">源码精品分析社区</p>
             
             <nav class="header-menu">
                 <ul>
@@ -260,7 +266,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h1><h2 id="H2"><a href="#H2" class="headerlink" title="H2"></a>H2</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><h4 id="H4"><a href="#H4" class="headerlink" title="H4"></a>H4</h4><h5 id="H5"><a href="#H5" class="headerlink" title="H5"></a>H5</h5><h6 id="H6"><a href="#H6" class="headerlink" title="H6"></a>H6</h6><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555734288759&amp;di=1178623005b6c8a6451fb52ea263cad1&amp;imgtype=0&amp;src=http%3A%2F%2Fimg1.xcarimg.com%2Fexp%2F2872%2F2875%2F2937%2F20101220130509576539.jpg" alt="test"><br><img src="https://img04.sogoucdn.com/app/a/100520146/6ED61265B2D55041DDF8F1F30696D182" alt="test"></p>
+        <p>平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。<br><a id="more"></a><br>1.Fiddler下载</p>
+<p>官网链接：<a href="https://www.telerik.com/fiddler" target="_blank" rel="noopener">https://www.telerik.com/fiddler</a></p>
+<p>英文文档链接：<a href="http://docs.telerik.com/fiddler/configure-fiddler/tasks/configurefiddler" target="_blank" rel="noopener">http://docs.telerik.com/fiddler/configure-fiddler/tasks/configurefiddler</a></p>
+<p>2.Fillder界面介绍及参数配置</p>
+<p>（1）找到Tools-&gt;Fiddler Options-&gt;Connections,将Allow remote computer to connect 选中，点击OK，这是为了能够捕获远程设备上的请求而勾选的。<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXzsvrB1NxawMZaFYm4kVhKVBbnGbWZHrwkKF07kodANtEPIfSeOWbCQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（2）在HTPPS中勾选【Capture HTTPS CONNECTS】<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXwyhIOKZPebVYHTkFNBaamnsjdjnXXZ36qDsxwSP9DxRAl14Mup3l1A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（3）将软件退出然后重启</p>
+<p>3.手机端配置，以安卓手机为例介绍</p>
+<p>（1）首先需要确保手机端和安装Fiddler软件的电脑在同一局域网，我是连的公司内网WIFI，配置手机代理前，先在电脑端的Fiddler页面的右上角鼠标悬浮online查看机器的IP<br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXQib2HgRibILYOoV9u9xicZ8l354v00mPByYk0ickJjib6jAfR4ajB9XqD3A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt><br>（2）进行手机端代理设置，选择代理配置方式为手动，服务器IP为上一步查看的安装Fiddler机器的IP，端口设置为8888<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqX8uXlqZ3PEts8WuCTM2ibJ5lHnrtJ90a7zlic7Ym4bPH8jKcKf6qcB5bQ/0?wx_fmt=jpeg" alt><br>（3）在手机端操作需要抓包调试的软件，可查看Fiddler已执行抓包请求<br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXhqxTIz3c0JoNpKKoJsqGUpLRPTeHH325ZqiaxicR0aIkiboqsZnDrqxUw/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXXYbR0CadnNh86ibbTu1qNpaRu7JQtADibxWUTPVCSOo1EdOxLat6gkfg/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXH34R6bEStRD8exBQWoMY2uxq9H82jU41nklIJHAtyicstyGLwme3FnA/0?wx_fmt=jpeg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/TicmlIiczBlaB9CjLaQgfsDV6UynwVOcqXRnKf5NjgYF2hX8iaS9kugUu16Libwdhwdh7Dz6IDJFtpOtVic6m5MiaYicA/0?wx_fmt=png" alt><br> <!--音乐播放插件--><br>    <div style="margin-top:30px;"><br>        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//dl.stream.qqmusic.qq.com/M5000021rBlZ1gQiLy.mp3?vkey=7A251B25A20DDE32571C1006E21CD43FFBCA50FCCF93F15B358B230E944600E8902EF2C0FF2AB49FDACF500BD1607B0D1E67731E1CEC266E&guid=5150825362&fromtag=1"></iframe><br>    </div></p>
 
       
     </div>
@@ -270,12 +282,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/">浅谈Fiddler手机抓包在实际开发中的应用</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">源码精品分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DaiFuyou</a></p>
         <p><span>发布时间:</span>2019-04-19, 15:37:41</p>
-        <p><span>最后更新:</span>2019-04-20, 09:41:19</p>
+        <p><span>最后更新:</span>2019-04-20, 11:01:01</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/" title="浅谈Fiddler手机抓包在实际开发中的应用">http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/　　作者: 源码精品分析" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/　　作者: DaiFuyou" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -291,7 +303,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#H1"><span class="toc-number">1.</span> <span class="toc-text">H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#H2"><span class="toc-number">1.1.</span> <span class="toc-text">H2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#H3"><span class="toc-number">1.1.1.</span> <span class="toc-text">H3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#H4"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">H4</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#H5"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">H5</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#H6"><span class="toc-number">1.1.1.1.1.1.</span> <span class="toc-text">H6</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -371,7 +383,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2019 源码精品分析
+                2019 DaiFuyou
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>

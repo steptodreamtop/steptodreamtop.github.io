@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/img/Fiddler/7.jpg">
 <meta property="og:image" content="http://yoursite.com/img/Fiddler/8.jpg">
 <meta property="og:image" content="http://yoursite.com/img/Fiddler/9.jpg">
-<meta property="og:updated_time" content="2019-04-20T05:44:03.954Z">
+<meta property="og:updated_time" content="2019-04-20T16:59:00.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Fiddler手机抓包在实际开发中的应用">
 <meta name="twitter:description" content="平常的开发中，经常需要通过抓包来分析手机或者页面发出的请求，Fiddler是一个很好用的抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。对于工作原理什么的可以自行google，由于在WEB开发中，google自带的开发者工具大部分可以满足开发的抓包需求了，所以我这篇文章主要分享一下在手机抓包在实际开发中使用的心得。&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;">
@@ -180,7 +180,9 @@
         </div>
     </header>                
 </div>
-
+<div id="music-area" class="switch-area">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="290" height="310" src="//music.163.com/outchain/player?type=0&id=523244238&auto=1&height=380&qlrc=1"></iframe>
+</div>
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -274,11 +276,146 @@
 <p>2.Fillder界面介绍及参数配置</p>
 <p>（1）找到Tools-&gt;Fiddler Options-&gt;Connections,将Allow remote computer to connect 选中，点击OK，这是为了能够捕获远程设备上的请求而勾选的。<br><img src="/img/Fiddler/2.jpg" alt="avatar"><br>（2）在HTPPS中勾选【Capture HTTPS CONNECTS】<br><img src="/img/Fiddler/1.jpg" alt="avatar"><br>（3）将软件退出然后重启</p>
 <p>3.手机端配置，以安卓手机为例介绍</p>
-<p>（1）首先需要确保手机端和安装Fiddler软件的电脑在同一局域网，我是连的公司内网WIFI，配置手机代理前，先在电脑端的Fiddler页面的右上角鼠标悬浮online查看机器的IP<br><img src="/img/Fiddler/3.jpg" alt="avatar"><br>（2）进行手机端代理设置，选择代理配置方式为手动，服务器IP为上一步查看的安装Fiddler机器的IP，端口设置为8888<br><img src="/img/Fiddler/4.jpg" alt="avatar"><br>（3）在手机端操作需要抓包调试的软件，可查看Fiddler已执行抓包请求<br><img src="/img/Fiddler/5.jpg" alt="avatar"><br><img src="/img/Fiddler/6.jpg" alt="avatar"><br><img src="/img/Fiddler/7.jpg" alt="avatar"><br><img src="/img/Fiddler/8.jpg" alt="avatar"><br><img src="/img/Fiddler/9.jpg" alt="avatar"><br> <!--音乐播放插件：绿色--><br>    <div style="margin-top:0px;"><br>        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//dl.stream.qqmusic.qq.com/M5000021rBlZ1gQiLy.mp3?vkey=7A251B25A20DDE32571C1006E21CD43FFBCA50FCCF93F15B358B230E944600E8902EF2C0FF2AB49FDACF500BD1607B0D1E67731E1CEC266E&guid=5150825362&fromtag=1"></iframe><br>    </div></p>
+<p>（1）首先需要确保手机端和安装Fiddler软件的电脑在同一局域网，我是连的公司内网WIFI，配置手机代理前，先在电脑端的Fiddler页面的右上角鼠标悬浮online查看机器的IP<br><img src="/img/Fiddler/3.jpg" alt="avatar"><br>（2）进行手机端代理设置，选择代理配置方式为手动，服务器IP为上一步查看的安装Fiddler机器的IP，端口设置为8888<br><img src="/img/Fiddler/4.jpg" alt="avatar"><br>（3）在手机端操作需要抓包调试的软件，可查看Fiddler已执行抓包请求<br><img src="/img/Fiddler/5.jpg" alt="avatar"><br><img src="/img/Fiddler/6.jpg" alt="avatar"><br><img src="/img/Fiddler/7.jpg" alt="avatar"><br><img src="/img/Fiddler/8.jpg" alt="avatar"><br><img src="/img/Fiddler/9.jpg" alt="avatar"></p>
 
       
     </div>
     
+	
+	
+	<div class="article-content">
+  
+    
+      <!-- css -->
+      <style type="text/css">
+          .center {
+              text-align: center;
+          }
+          .hidden {
+              display: none;
+          }
+        .donate_bar a.btn_donate{
+          display: inline-block;
+          width: 82px;
+          height: 82px;
+          background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+          _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+
+          <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+               因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+             为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+             嵌入其它博客时不一定要它们。 -->
+          -webkit-transition: background 0s;
+          -moz-transition: background 0s;
+          -o-transition: background 0s;
+          -ms-transition: background 0s;
+          transition: background 0s;
+          <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+        }
+
+        .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+        .donate_bar .donate_txt {
+          display: block;
+          color: #9d9d9d;
+          font: 14px/2 "Microsoft Yahei";
+        }
+        .bold{ font-weight: bold; }
+      </style>
+      <!-- /css -->
+
+        <!-- Donate Module -->
+        <div id="donate_module">
+
+      <!-- btn_donate & tips -->
+      <div id="donate_board" class="donate_bar center">
+          <br>
+          ------------------------------------------------------------------------------------------------------------------------------
+          <br>
+        <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="点我走上人生巅峰"></a>
+        <span class="donate_txt">
+          会不会有人就是想不开要打赏我呢？这是个问题！
+        </span>
+          
+        
+      </div>
+      <!-- /btn_donate & tips -->
+
+      <!-- donate guide -->
+        
+      <div id="donate_guide" class="donate_bar center hidden">
+            <br>
+          ------------------------------------------------------------------------------------------------------------------------------
+          <br>
+
+        <a href="http://ww1.sinaimg.cn/large/006UXfCwly1g29jjaeynvj30u0155jt4.jpg" title="用微信扫一扫哦~" class="fancybox" rel="article0">
+          <img src="http://ww1.sinaimg.cn/large/006UXfCwly1g29jjaeynvj30u0155jt4.jpg" title="用微信转账羞辱他" height="190px" width="auto">
+        </a>
+            
+            &nbsp;&nbsp;
+
+        <a href="http://ww1.sinaimg.cn/large/006UXfCwly1g29jkstkj1j30u01aoacf.jpg" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
+          <img src="http://ww1.sinaimg.cn/large/006UXfCwly1g29jkstkj1j30u01aoacf.jpg" title="用支付宝转账羞辱他" height="190px" width="auto">
+        </a>
+
+        <span class="donate_txt">
+          会不会有人就是想不开要打赏我呢？这是个问题！
+        </span>
+
+      </div>
+      <!-- /donate guide -->
+
+      <!-- donate script -->
+      <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function() {
+          $('#donate_board').addClass('hidden');
+          $('#donate_guide').removeClass('hidden');
+        }
+
+        function donate_on_web(){
+          $('#donate').submit();
+            }
+
+        var original_window_onload = window.onload;
+            window.onload = function () {
+                if (original_window_onload) {
+                    original_window_onload();
+                }
+                document.getElementById('donate_board_wdg').className = 'hidden';
+        }
+      </script>
+      <!-- /donate script -->
+    </div>
+    <!-- /Donate Module -->
+       
+  
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
   </div>
   
     
@@ -286,7 +423,7 @@
         <p><span>本文标题:</span><a href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/">浅谈Fiddler手机抓包在实际开发中的应用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DaiFuyou</a></p>
         <p><span>发布时间:</span>2019-04-19, 15:37:41</p>
-        <p><span>最后更新:</span>2019-04-20, 13:44:03</p>
+        <p><span>最后更新:</span>2019-04-21, 00:59:00</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/" title="浅谈Fiddler手机抓包在实际开发中的应用">http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/19/浅谈Fiddler手机抓包在实际开发中的应用/　　作者: DaiFuyou" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -424,6 +561,23 @@
             </div>
         
     </div>
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("02/14/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
 </footer>
     </div>
     
